@@ -39,29 +39,24 @@ hbs.registerHelper('screamIt', (text) => {
     return text.toUpperCase();
 });
 
-app.get('/', (req, res) => {
-    // res.send('<h1>Hello Express </h1>');
-    res.send({
-        name: 'Andrew',
-        age: 25,
-        likes: [
-            'Biking',
-            'Cycling'
-        ]
-    });
-});
-
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',
     });
 });
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.render('home.hbs', {
         welcome: 'Hello, Express!',
         pageTitle: 'Home Page',
         currentYear: new Date().getFullYear(),
+    });
+});
+
+app.get('/project', (req, res)=>{
+    res.render('project.hbs', {
+        pageTitle: 'Projects',
+        welcome: 'Port folio page'
     });
 });
 
